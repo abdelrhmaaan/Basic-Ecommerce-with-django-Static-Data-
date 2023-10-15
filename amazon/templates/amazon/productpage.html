@@ -1,0 +1,31 @@
+
+{% extends "base.html" %}
+
+{% load static %}
+{% block productpage %}
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <img src= {% static product.img %}  class="card-img-top" alt='Not LOaded'>
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text"> {{product.price}} </p>
+                    <a href="" class="btn btn-primary">Show</a>
+                    <a href= {% url "home" %} class="btn btn-dark">Return to Products</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">{{product.name}}</h5>
+                    <p class="card-text"> {{product.price}} </p>
+                    <p>{% lorem 1 b random %}</P>
+                    <p> IN STock </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock productpage %}

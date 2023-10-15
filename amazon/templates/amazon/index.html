@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js" ></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css">
+    </head>
+    <body class="">
+        {% extends "base.html" %}
+        {% load static %}
+    {% block content %}
+    <div class="container mt-5">
+            <div class="row">
+                {% for product in products %}
+                <div class="col-md-3">
+                    <div class="card">
+                        <img src= {% static product.img %}  class="card-img-top" alt='Not LOaded'>
+                        <div class="card-body">
+                            <h5 class="card-title">{{product.name}}</h5>
+                            <p class="card-text"> {{product.price}} </p>
+                            <a href="productpage/{{product.id}}" class="btn btn-primary">Show</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+    </div>
+    {% endblock content %}
+</body>
+</html>
